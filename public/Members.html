@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Members</title>
+
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script language="JavaScript">
+    function showform(operation) {
+      // this function sets one visible the others not
+      if (operation == 'create') {
+        document.getElementById('read').style.display = 'none';
+        document.getElementById('create').style.display = 'block';
+        document.getElementById('update').style.display = 'none';
+        document.getElementById('delete').style.display = 'none';
+        document.getElementById('search').style.display = 'none';
+
+      }
+      else if (operation == 'update') {
+        document.getElementById('read').style.display = 'none';
+        document.getElementById('create').style.display = 'none';
+        document.getElementById('update').style.display = 'block';
+        document.getElementById('delete').style.display = 'none';
+        document.getElementById('search').style.display = 'none';
+
+      }
+      else if (operation == 'delete') {
+        document.getElementById('read').style.display = 'none';
+        document.getElementById('create').style.display = 'none';
+        document.getElementById('update').style.display = 'none';
+        document.getElementById('delete').style.display = 'block';
+        document.getElementById('search').style.display = 'none';
+
+      }
+      else if (operation == 'all') {
+        document.getElementById('read').style.display = 'block';
+        document.getElementById('create').style.display = 'block';
+        document.getElementById('update').style.display = 'block';
+        document.getElementById('delete').style.display = 'block';
+        document.getElementById('search').style.display = 'block';
+
+      }
+      else if (operation == 'search') {
+        document.getElementById('read').style.display = 'none';
+        document.getElementById('create').style.display = 'none';
+        document.getElementById('update').style.display = 'none';
+        document.getElementById('delete').style.display = 'none';
+        document.getElementById('search').style.display = 'block';
+
+      }
+      else { //by default display read
+        document.getElementById('read').style.display = 'block';
+        document.getElementById('create').style.display = 'none';
+        document.getElementById('update').style.display = 'none';
+        document.getElementById('delete').style.display = 'none';
+        document.getElementById('search').style.display = 'none';
+
+      }
+    }
+    function newMember() { showform('create'); }
+    function updateMember(pid) { showform('update'); }
+    function deleteMember(pid) { showform('delete'); }
+    function readMembers() { showform('read'); }
+    function searchMembers() {showform('search')};
+    function showAll() { showform('all'); }
+  </script>
+</head>
+
+<body onload="readMembers()">
+  <h1>Members</h1>
+
+  [<a href="Members.html">Members</a> |
+  <a href="Items.html">Items</a> |
+  <a href="Transactions.html">Transactions</a> |
+  <a href="Employees.html">Employees</a> |
+  <a href="TransactionsItems.html">TransactionsItems</a> ] 
+
+  <br>
+  <br>
+  <a href="index.html">Return to Homepage</a> 
+
+  <div id="read">
+    <p><a href="#" onclick="showAll()">Display all forms</a>
+      <br>
+      <br>
+      <input class="btn" type="button" value="Add Member" onclick="newMember()">
+      <br>
+      <br>
+      <input class="btn" type="button" value="Search Members" onclick="searchMembers()">
+    </p>
+
+    <table border="1" cellpadding="5">
+      <tr>
+        <th></th>
+        <th>MemberID</th>
+        <th>firstName</th>
+        <th>lastName</th>
+        <th>jobClass</th>
+        <th>race</th>
+        <th>level</th>
+        <th>isActive</th>
+        <th></th>
+
+      </tr>
+      <tr>
+        <td><a href="#" onclick="deleteMember('this.MemberID')">Delete</a></td>
+        <td align="right">1</td>
+        <td>Arnie</td>
+        <td align="right">Bowman</td>
+        <td>Archer</td>
+        <td>Fishman</td>
+        <td>38</td>
+        <td>True</td>
+        <td><a href="#" onclick="updateMember('this.MemberID')">Edit</a></td>
+
+      </tr>
+      <tr>
+        <td><a href="#" onclick="deleteMember('this.MemberID')">Delete</a></td>
+        <td align="right">2</td>
+        <td>Lebron</td>
+        <td align="right">James</td>
+        <td>Hero</td>
+        <td>Goat</td>
+        <td>23</td>
+        <td>True</td>
+        <td><a href="#" onclick="updateMember('this.MemberID')">Edit</a></td>
+
+      </tr>
+      <tr>
+        <td><a href="#" onclick="deleteMember('this.MemberID')">Delete</a></td>
+        <td align="right">3</td>
+        <td>Beepbeep</td>
+        <td align="right">Boop</td>
+        <td>Paladin</td>
+        <td>Robot</td>
+        <td>68</td>
+        <td>False</td>
+        <td><a href="#" onclick="updateMember('this.MemberID')">Edit</a></td>
+
+      </tr>
+      <tr>
+        <td><a href="#" onclick="deleteMember('this.MemberID')">Delete</a></td>
+        <td align="right">4</td>
+        <td>Ho Nam</td>
+        <td align="right">Chan</td>
+        <td>Assassin</td>
+        <td>Human</td>
+        <td>88</td>
+        <td>True</td>
+        <td><a href="#" onclick="updateMember('this.MemberID')">Edit</a></td>
+
+      </tr>
+      <tr>
+        <td><a href="#" onclick="deleteMember('this.MemberID')">Delete</a></td>
+        <td align="right">5</td>
+        <td>Jo</td>
+        <td align="right">Jo</td>
+        <td>Summoner</td>
+        <td>Demon</td>
+        <td>99</td>
+        <td>True</td>
+        <td><a href="#" onclick="updateMember('this.MemberID')">Edit</a></td>
+
+      </tr>
+    </table>
+    <p>&nbsp;</p>
+  </div> <!-- read -->
+  <div id="create">
+    <form method="POST" id="addMemberForm">
+      <legend><strong>Add Member</strong></legend>
+      <fieldset class="fields">
+        <label> first name </label><br><input type="text" name="firstName">
+        <br>
+        <label> last name </label><br><input type="text" name="lastName">
+        <br>
+        <label> job class </label><br><input type="text" name="jobClass">
+        <br>
+        <label> race </label><br><input type="text" name="race">
+        <br>
+        <label> level </label><br><input type="text" name="level">
+      </fieldset>
+      <input class="btn" type="submit" id="addMember" value="Add Member">
+      <input class="btn" type="button" value="cancel" onclick="readMembers()">
+    </form>
+
+  </div><!-- create -->
+  <p>&nbsp;</p>
+  <div id="update">
+    <form method="POST" id="UpdateMember">
+      <legend><strong>Update Member</strong></legend>
+      <fieldset class="fields">
+        <input type="hidden" name="MemberID" id="updateMemberID" value="1">
+        <label> Member ID: </label> 2 <br> <br>
+        <label> first name </label><br><input type="text" name="firstName" value="Lebron">
+        <br>
+        <label> last name </label><br><input type="text" name="lastName" value="James">
+        <br>
+        <label> job class </label><br><input type="text" name="jobClass" value="Hero">
+        <br>
+        <label> race </label><br><input type="text" name="race" value="Goat">
+        <br>
+        <label> level </label><br><input type="text" name="level" value="24">
+      </fieldset>
+      <input class="btn" type="submit" id="UpdateSaveMember" value="Save">
+      <input class="btn" type="button" value="cancel" onclick="readMembers()">
+    </form>
+  </div><!-- update -->
+  <p>&nbsp;</p>
+  <div id="delete" style="display: block">
+    <form method="POST" id="deleteMember">
+      <legend><strong>Delete Member</strong></legend>
+      <fieldset class="fields">
+        <p>Are you sure you wish to delete the following?</p>
+        <input type="hidden" name="MemberID" id="deleteMemberID" value="3">
+        <label><strong>ID:</strong></label> 3
+        <label> <strong>Name</strong> </label> Beepbeep Boop
+
+      </fieldset>
+      <input class="btn" type="submit" id="DeleteMember" value="Delete Member">
+      <input class="btn" type="button" value="cancel" onclick="readMembers()">
+    </form>
+  </div><!-- delete -->
+  <p>&nbsp;</p>
+
+  <div id="search" style="display: block">
+    <form method="POST" id="searchMembers">
+      <legend><strong>Search Members</strong></legend>
+        <fieldset class="fields">
+          <label> MemberID </label><br><input type="text" name="MemberID" value="2">
+          <br>
+          <label> first name </label><br><input type="text" name="firstName" value="Lebron">
+          <br>
+          <label> last name </label><br><input type="text" name="lastName" value="James">
+          <br>
+          <label> job class </label><br><input type="text" name="jobClass" value="Hero">
+          <br>
+          <label> race </label><br><input type="text" name="race" value="Goat">
+          <br>
+          <label> minimum level </label><br><input type="text" name="level" value="23">
+          <br>
+          <label> isActive </label><br><input type="text" name="isActive" value="1">
+          <br>
+        </fieldset>
+      <input class="btn" type="submit" id="UpdateSearchMembers" value="Search">
+      <input class="btn" type="button" value="cancel" onclick="browseMembers()">
+    </form> 
+  </div><!-- search -->
+
+</body>
+
+</html>

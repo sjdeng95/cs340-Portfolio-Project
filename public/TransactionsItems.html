@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>TransactionsItems</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript">
+		function showform() {
+			document.getElementById('browse').style.display = 'block';
+            document.getElementById('search').style.display = 'block';
+
+		}
+    function browseTransactionsItems() { showform ('browse'); }
+    function searchTransactionsItems() { showform ('search'); }
+    function showAll() { showform ('all'); }
+</script>
+</head>
+
+<body onload="browseTransactions()">
+
+<h1>TransactionsItems</h1>
+[<a href="Members.html">Members</a> |
+<a href="Items.html">Items</a> |
+<a href="Transactions.html">Transactions</a> |
+<a href="Employees.html">Employees</a> |
+<a href="TransactionsItems.html">TransactionsItems</a> ] 
+
+<br> 
+<br> 
+
+<div id="browse">
+
+<table border="1" cellpadding="5">
+  <tr>
+    <th>TransactionItemID</th>
+    <th>TransactionID</th>
+    <th>itemID</th>
+  </tr>
+
+  <tr align="right">
+    <td>1</td>
+    <td>1</td>
+    <td>6</td>
+  </tr>
+
+  <tr align="right">
+    <td>2</td>
+    <td>2</td>
+    <td>7</td>
+  </tr>
+
+  <tr align="right">
+    <td>3</td>
+    <td>3</td>
+    <td>7</td>
+  </tr>
+
+  <tr align="right">
+    <td>4</td>
+    <td>4</td>
+    <td>5</td>
+  </tr>
+ 
+ 
+</table>
+</div><!-- insert -->
+<p>&nbsp;</p>
+
+<div id="search" style="display: block">
+    <form method="POST" id="searchTransactions">
+      <legend><strong>Search Transactions</strong></legend>
+        <fieldset class="fields">
+          <label> TransactionID </label><br><input type="text" name="transactionID">
+          <br>
+          <label> Item ID </label><br><input type="text" name="itemID">
+          <br>
+          <label> TransactionItemID</label><br><input type="text" name="TransactionItemID" >
+          <br>
+        </fieldset>
+      <input class="btn" type="submit" id="UpdateSearchTransactionsItems" value="Search">
+      <input class="btn" type="button" value="cancel" onclick="browseTransactionsItems()">
+      </form> 
+  </div><!-- search -->
+
+</body>
+</html>

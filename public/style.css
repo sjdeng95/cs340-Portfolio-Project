@@ -1,0 +1,19 @@
+/* CSS Document */
+
+h1,header {
+    font-family: fantasy;
+    color: chocolate;
+}
+h2 {
+    font-family: fantasy;
+    color:darkgreen
+}
+body {
+    background-color: powderblue;
+    font-family: fantasy;
+}
+text {
+    color: black;
+    font-family: fantasy;
+    
+}

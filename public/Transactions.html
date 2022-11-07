@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Transactions</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript">
+		function showform(dowhat) {
+			document.getElementById('browse').style.display = 'block';
+      document.getElementById('search').style.display = 'block';
+		}
+    
+    function browseTransactions() { showform ('browse'); }
+    function searchTransactions() { showform ('search'); }
+</script>
+</head>
+
+<body onload="browseTransactions()">
+<h1>Transactions</h1>
+
+[<a href="Members.html">Members</a> |
+<a href="Items.html">Items</a> |
+<a href="Transactions.html">Transactions</a> |
+<a href="Employees.html">Employees</a> | 
+<a href="TransactionsItems.html">TransactionsItems</a> ] 
+
+<br> 
+<br> 
+
+<div id="browse">
+
+<table border="1" cellpadding="5">
+  <tr>
+    <th> TransactionID</th>
+    <th>Member</th>
+    <th>Handled by</th>
+    <th>Date</th>
+    <th>type</th>
+    <th>items</th>
+  </tr>
+
+  <tr>
+    <td align="right" >1</td>
+    <td>Arnie Bowman</td>
+    <td align="right" >Gerry Twinkles</td>
+    <td>2022-02-22</td>
+    <td>deposit</td>
+    <td>fishfood</td>
+  </tr>
+  <tr>
+    <td align="right" >2</td>
+    <td>Lebron James</td>
+    <td align="right" >Gerry Twinkles</td>
+    <td>2022-06-23</td>
+    <td>deposit</td>
+    <td> goat snacks </td>
+
+
+  </tr>
+  <tr>
+    <td align="right" >3</td>
+    <td>Lebron James</td>
+    <td align="right" >Gerry Twinkles</td>
+    <td>2022-09-18</td>
+    <td>withdrawal</td>
+    <td>goat snacks</td>
+
+
+  </tr>
+  <tr>
+    <td align="right" >4</td>
+    <td>Jo Jo</td>
+    <td align="right" >Cory En de Haus</td>
+    <td>2022-10-09</td>
+    <td>withdrawal</td>
+    <td>cool hat</td>
+  </tr>
+
+
+</table>
+</div>
+
+<p>&nbsp;</p>
+
+<div id="search" style="display: block">
+  <form method="POST" id="searchTransactions">
+    <legend><strong>Search Transactions</strong></legend>
+      <fieldset class="fields">
+        <label> Transaction ID </label><br><input type="text" name="MemberID">
+        <br>
+        <label> Member ID </label><br><input type="text" name="Member">
+        <br>
+      
+        <label> Employee ID</label><br><input type="text" name="employee" value="Gerry Twinkles">
+        <br>
+        <label> before date </label><br><input type="date" name="date">
+        <br>
+        <label> type </label><br><input type="text" name="level">
+        <br>
+
+      </fieldset>
+    <input class="btn" type="submit" id="UpdateSearchTransactions" value="Search">
+    <input class="btn" type="button" value="cancel" onclick="browseTransactions()">
+    </form> 
+</div><!-- search -->
+<p>&nbsp;</p>
+
+
+</body>
+</html>

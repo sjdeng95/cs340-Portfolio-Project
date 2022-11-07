@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Employees</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript">
+		function showform(dowhat) {
+			/*
+			* four DIVS: browse, insert, update, delete
+			* this function sets one visible the others not
+			*/
+			if (dowhat == 'insert'){
+				document.getElementById('browse').style.display = 'none';
+				document.getElementById('insert').style.display = 'block';
+				document.getElementById('update').style.display = 'none';
+				document.getElementById('delete').style.display = 'none';
+        document.getElementById('search').style.display = 'none';
+
+			}
+			else if (dowhat == 'update'){
+				document.getElementById('browse').style.display = 'none';
+				document.getElementById('insert').style.display = 'none';
+				document.getElementById('update').style.display = 'block';
+				document.getElementById('delete').style.display = 'none';
+        document.getElementById('search').style.display = 'none';
+
+			}
+			else if (dowhat == 'delete'){
+				document.getElementById('browse').style.display = 'none';
+				document.getElementById('insert').style.display = 'none';
+				document.getElementById('update').style.display = 'none';
+				document.getElementById('delete').style.display = 'block';
+        document.getElementById('search').style.display = 'none';
+
+			}
+      else if (dowhat == 'all'){
+				document.getElementById('browse').style.display = 'block';
+				document.getElementById('insert').style.display = 'block';
+				document.getElementById('update').style.display = 'block';
+				document.getElementById('delete').style.display = 'block';
+        document.getElementById('search').style.display = 'block';
+			}
+      else if (dowhat == 'search'){
+				document.getElementById('browse').style.display = 'none';
+				document.getElementById('insert').style.display = 'none';
+				document.getElementById('update').style.display = 'none';
+				document.getElementById('delete').style.display = 'none';
+        document.getElementById('search').style.display = 'block';
+      }
+			else { //by default display browse
+				document.getElementById('browse').style.display = 'block';
+				document.getElementById('insert').style.display = 'none';
+				document.getElementById('update').style.display = 'none';
+				document.getElementById('delete').style.display = 'none';
+        document.getElementById('search').style.display = 'none';
+
+			}
+		}
+    function newEmployee() { showform('insert'); }
+    function updateEmployee(pid) { showform('update'); }
+    function deleteEmployee(pid) { showform ('delete'); }
+    function browseEmployees() { showform ('browse'); }
+    function searchEmployees() {showform('search');}
+    function showAll() { showform ('all'); }
+</script>
+</head>
+
+<body onload="browseEmployees()">
+<h1>Employees</h1>
+
+[<a href="Members.html">Members</a> |
+<a href="Items.html">Items</a> |
+<a href="Transactions.html">Transactions</a> |
+<a href="Employees.html">Employees</a> |
+<a href="TransactionsItems.html">TransactionsItems</a> ] 
+
+
+<br>
+<br>
+<a href="index.html">Return to Homepage</a> 
+
+<div id="browse">
+<p><a href="#" onclick="showAll()">Display all forms</a> 
+  <br>
+  <br>
+  <input class="btn" type="button" value="Add Employee" onclick="newEmployee()">
+  <br>
+  <br>
+  <input class="btn" type="button" value="Search Employees" onclick="searchEmployees()">
+</p>
+
+<table border="1" cellpadding="5">
+  <tr>
+    <th></th>
+    <th>EmployeeID</th>
+    <th>firstName</th>
+    <th>lastName</th>
+    <th>employeeClass</th>
+    <th>race</th>
+    <th>isActive</th>
+    <th></th>
+
+  </tr>
+  <tr>
+    <td><a href="#" onclick="deleteEmployee('this.EmployeeID')">Delete</a></td>
+    <td align="right" >1</td>
+    <td>Wudol</td>
+    <td align="right" >Goodboy</td>
+    <td>general manager</td>
+    <td>woldkin</td>
+    <td>True</td>
+    <td><a href="#" onclick="updateEmployee('this.EmployeeID')">Edit</a></td>
+
+  </tr>
+  <tr>
+    <td><a href="#" onclick="deleteEmployee('this.EmployeeID')">Delete</a></td>
+    <td align="right" >2</td>
+    <td>Gerry</td>
+    <td align="right" >Twinkles</td>
+    <td>transactions associate</td>
+    <td>vampire</td>
+    <td>True</td>
+    <td><a href="#" onclick="updateEmployee('this.EmployeeID')">Edit</a></td>
+
+  </tr>
+  <tr>
+    <td><a href="#" onclick="deleteEmployee('this.EmployeeID')">Delete</a></td>
+    <td align="right" >3</td>
+    <td>Cory</td>
+    <td align="right" >En de Haus</td>
+    <td>intern</td>
+    <td>human</td>
+    <td>True</td>
+    <td><a href="#" onclick="updateEmployee('this.EmployeeID')">Edit</a></td>
+
+  </tr>
+
+</table>
+<p>&nbsp;</p>
+</div> <!-- browse -->
+<div id="insert">
+    <form method="POST" id="addEmployeeForm">
+        <legend><strong>New Employee</strong></legend>
+          <fieldset class="fields">
+            <label> first name </label><br><input type="text" name="firstName">
+            <br>
+            <label> last name </label><br><input type="text" name="lastName">
+            <br>
+            <label> employee class </label><br><input type="text" name="employeeClass">
+            <br>
+            <label> race </label><br><input type="text" name="race">
+            <br>
+      </fieldset>
+          <input class="btn" type="submit" id="addEmployee" value="Add Employee">
+          <input class="btn" type="button" value="cancel" onclick="browseEmployees()">
+	</form> 
+
+</div><!-- insert -->
+<p>&nbsp;</p>
+<div id="update">
+    <form method="POST" id="UpdateEmployee">
+        <legend><strong>Update Employee</strong></legend>
+          <fieldset class="fields">
+          <input type="hidden" name="EmployeeID" id="updateEmployeeID" value="1">
+          <label> ID: </label> 2 <br> <br>
+          <label> first name </label><br><input type="text" name="firstName" value = "Gerry">
+          <br>
+          <label> last name </label><br><input type="text" name="lastName" value = "Bloodzuka">
+          <br>
+          <label> employee class </label><br><input type="text" name="employeeClass" value = "transactions associate">
+          <br>
+          <label> race </label><br><input type="text" name="race" value = "vampire">
+          <br>
+      </fieldset>
+          <input class="btn" type="submit" id="UpdateSaveEmployee" value="Employee">
+          <input class="btn" type="button" value="cancel" onclick="browseEmployees()">
+	</form> 
+</div><!-- update -->
+<p>&nbsp;</p>
+<div id="delete" style="display: block">
+  <form method="POST" id="deleteEmployee">
+      <legend><strong>Delete Employee</strong></legend>
+          <fieldset class="fields">
+          <p>Are you sure you wish to delete the following?</p>
+          <input type="hidden" name="EmployeeID" id="deleteEmployeeID" value="3">
+          <label><strong>ID:</strong></label> 3
+            <label> <strong>Name</strong> </label> Cory En de Haus
+            
+    </fieldset>
+    <input class="btn" type="submit" id="DeleteEmployee" value="Delete Employee">
+    <input class="btn" type="button" value="cancel" onclick="browseEmployees()">
+  </form> 
+</div><!-- delete -->
+<p>&nbsp;</p>
+
+<div id="search" style="display: block">
+  <form method="POST" id="searchEmployees">
+    <legend><strong>Search Employees</strong></legend>
+      <fieldset class="fields">
+        <label> EmployeeID </label><br><input type="text" name="MemberID" value="">
+        <br>
+        <label> First name </label><br><input type="text" name="firstName" value="">
+        <br>
+        <label> Last name </label><br><input type="text" name="lastName" value="">
+        <br>
+        <label> Employee class </label><br><input type="text" name="jobClass" value="">
+        <br>
+        <label> race </label><br><input type="text" name="race" value="">
+        <br>
+        <label> isActive </label><br><input type="text" name="isActive" value="1">
+        <br>
+      </fieldset>
+    <input class="btn" type="submit" id="UpdateSearchEmployees" value="Search">
+    <input class="btn" type="button" value="cancel" onclick="browseEmployees()">
+  </form> 
+</div><!-- search -->
+
+</body>
+</html>

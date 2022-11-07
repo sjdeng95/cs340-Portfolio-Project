@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Items</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript">
+		function showform(dowhat) {
+			/*
+			* four DIVS: browse, insert, update, delete
+			* this function sets one visible the others not
+			*/
+			if (dowhat == 'insert'){
+				document.getElementById('browse').style.display = 'none';
+				document.getElementById('insert').style.display = 'block';
+				document.getElementById('update').style.display = 'none';
+				document.getElementById('delete').style.display = 'none';
+        document.getElementById('search').style.display = 'none';
+
+			}
+			else if (dowhat == 'update'){
+				document.getElementById('browse').style.display = 'none';
+				document.getElementById('insert').style.display = 'none';
+				document.getElementById('update').style.display = 'block';
+				document.getElementById('delete').style.display = 'none';
+        document.getElementById('search').style.display = 'none';
+
+			}
+			else if (dowhat == 'delete'){
+				document.getElementById('browse').style.display = 'none';
+				document.getElementById('insert').style.display = 'none';
+				document.getElementById('update').style.display = 'none';
+				document.getElementById('delete').style.display = 'block';
+        document.getElementById('search').style.display = 'none';
+
+			}
+      else if (dowhat == 'all'){
+				document.getElementById('browse').style.display = 'block';
+				document.getElementById('insert').style.display = 'block';
+				document.getElementById('update').style.display = 'block';
+				document.getElementById('delete').style.display = 'block';
+        document.getElementById('search').style.display = 'block';
+
+        
+			}
+      else if (dowhat == 'search'){
+				document.getElementById('browse').style.display = 'none';
+				document.getElementById('insert').style.display = 'none';
+				document.getElementById('update').style.display = 'none';
+				document.getElementById('delete').style.display = 'none';
+        document.getElementById('search').style.display = 'block';
+
+			}
+			else { //by default display browse
+				document.getElementById('browse').style.display = 'block';
+				document.getElementById('insert').style.display = 'none';
+				document.getElementById('update').style.display = 'none';
+				document.getElementById('delete').style.display = 'none';
+        document.getElementById('search').style.display = 'none';
+
+			}
+		}
+    function newItem() { showform('insert'); }
+    function updateItem(pid) { showform('update'); }
+    function deleteItem(pid) { showform ('delete'); }
+    function browseItems() { showform ('browse'); }
+    function searchItems() { showform ('search'); }
+    function showAll() { showform ('all'); }
+</script>
+</head>
+
+<body onload="browseItems()">
+<h1>Items</h1>
+
+[<a href="Members.html">Members</a> |
+<a href="Items.html">Items</a> |
+<a href="Transactions.html">Transactions</a> |
+<a href="Employees.html">Employees</a> |
+<a href="TransactionsItems.html">TransactionsItems</a> ] 
+
+<br>
+<br>
+<a href="index.html">Return to Homepage</a> 
+
+<div id="browse">
+<p>
+    <a href="#" onclick="showAll()">Display all forms</a> 
+    <br>
+    <br>
+    <input class="btn" type="button" value="Deposit Item" onclick="newItem()">
+    <br>
+    <br>
+    <input class="btn" type="button" value="Search Item" onclick="searchItems()">
+</p>
+
+
+
+<table border="1" cellpadding="5">
+  <tr>
+    <th></th>
+    <th>ItemID</th>
+    <th>owner</th>
+    <th>itemClass</th>
+    <th>itemValue</th>
+    <th>itemDescription</th>
+    <th></th>
+
+  </tr>
+  <tr>
+    <td><a href="#" onclick="deleteItem('this.ItemID')">Withdraw</a></td>
+    <td align="right" >1</td>
+    <td>Arnie Bowman</td>
+    <td align="right" >weapon</td>
+    <td>16</td>
+    <td>waterproof bow</td>
+    <td><a href="#" onclick="updateItem('this.ItemID')">Edit</a></td>
+
+
+  </tr>
+  <tr>
+    <td><a href="#" onclick="deleteItem('this.ItemID')">Withdraw</a></td>
+    <td align="right" >2</td>
+    <td>Lebron James</td>
+    <td align="right" >armor</td>
+    <td>6</td>
+    <td>lakers jersey</td>
+    <td><a href="#" onclick="updateItem('this.ItemID')">Edit</a></td>
+
+  </tr>
+  <tr>
+    <td><a href="#" onclick="deleteItem('this.ItemID')">Withdraw</a></td>
+    <td align="right" >3</td>
+    <td>Lebron James</td>
+    <td align="right" >loot</td>
+    <td>99999</td>
+    <td>Nike Bounty</td>
+    <td><a href="#" onclick="updateItem('this.ItemID')">Edit</a></td>
+
+  </tr>
+  <tr>
+    <td><a href="#" onclick="deleteItem('this.ItemID')">Withdraw</a></td>
+    <td align="right" >4</td>
+    <td>Ho Nam Chan</td>
+    <td align="right" >misc</td>
+    <td>1</td>
+    <td>half a pack of gum</td>
+    <td><a href="#" onclick="updateItem('this.ItemID')">Edit</a></td>
+
+  </tr>
+  <tr>
+    <td><a href="#" onclick="deleteItem('this.ItemID')">Withdraw</a></td>
+    <td align="right" >5</td>
+    <td>Jo Jo</td>
+    <td align="right" >accessory</td>
+    <td>8</td>
+    <td>a cool hat</td>
+    <td><a href="#" onclick="updateItem('this.ItemID')">Edit</a></td>
+
+  </tr>
+
+ 
+ 
+</table>
+<p>&nbsp;</p>
+</div> <!-- browse -->
+<div id="insert">
+    <form method="POST" id="addItemForm">
+        <legend><strong>Deposit Item</strong></legend>
+          <fieldset class="fields">
+            <label> Owner Name </label><br><input type="text" name="owner">
+            <br>
+            <label> Class </label><br><input type="text" name="itemClass">
+            <br>
+            <label> Value </label><br><input type="text" name="itemValue">
+            <br>
+            <label> Description </label><br><input type="text" name="itemDescription">
+      </fieldset>
+          <input class="btn" type="submit" id="addItem" value="Deposit">
+          <input class="btn" type="button" value="cancel" onclick="browseItems()">
+	</form> 
+
+</div><!-- insert -->
+<p>&nbsp;</p>
+<div id="update">
+    <form method="POST" id="UpdateItem">
+        <legend><strong>Update Item</strong></legend>
+          <fieldset class="fields">
+          <input type="hidden" name="ItemID" id="updateItemID" value="2">
+          <label> ItemID: </label> 2 <br> <br>
+          <label> Class </label><br><input type="text" name="itemClass" value="misc">
+          <br>
+          <label> Value </label><br><input type="text" name="itemValue" value="1">
+          <br>
+          <label> Description </label><br><input type="text" name="itemDescription" value="quarter pack of gum">
+      </fieldset>
+          <input class="btn" type="submit" id="UpdateSaveItem" value="Save">
+          <input class="btn" type="button" value="cancel" onclick="browseItems()">
+	</form> 
+</div><!-- update -->
+<p>&nbsp;</p>
+<div id="delete" style="display: block">
+  <form method="POST" id="deleteItem">
+      <legend><strong>Withdraw Item</strong></legend>
+          <fieldset class="fields">
+          <p>Are you sure you wish to withdraw the following?</p>
+          <input type="hidden" name="ItemID" id="deleteItemID" value="3">
+          <label><strong>ID:</strong></label> 3 <br>
+            <label> <strong>Item:</strong> </label> Nike Bounty
+            
+    </fieldset>
+    <input class="btn" type="submit" id="DeleteItem" value="Withdraw Item">
+    <input class="btn" type="button" value="cancel" onclick="browseItems()">
+  </form> 
+</div><!-- delete -->
+
+<p>&nbsp;</p>
+<div id="search" style="display: block">
+  <form method="POST" id="searchItem">
+    <legend><strong>Search Items</strong></legend>
+      <fieldset class="fields">
+      <label> Owner ID </label><br><input type="text" name="ownerID" value="1">
+      <br>      
+      <label> ItemID </label><br><input type="text" name="itemID" value="1">
+      <br>      
+      <label> Class </label><br><input type="text" name="itemClass" value="weapon">
+      <br>
+      <label> Value </label><br><input type="text" name="itemValue" value="16">
+      <br>
+  </fieldset>
+      <input class="btn" type="submit" id="UpdateSearchItem" value="Search">
+      <input class="btn" type="button" value="cancel" onclick="browseItems()">
+</form> 
+</div><!-- search -->
+
+</body>
+</html>
